@@ -58,6 +58,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/daily-quote/",
               "budgets": [
                 {
                   "type": "initial",
