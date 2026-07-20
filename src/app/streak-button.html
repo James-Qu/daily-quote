@@ -1,0 +1,26 @@
+<div class="position-relative">
+  <button
+    class="btn btn-lg w-100 rounded-4 d-flex align-items-center justify-content-center gap-2"
+    [class.btn-warning]="streakService.isStreakExtendable()"
+    [class.btn-secondary]="!streakService.isStreakExtendable()"
+    [disabled]="!streakService.isStreakExtendable()"
+    (click)="extend()"
+  >
+    <i class="bi bi-flame-fill fs-4"></i>
+    <span class="fw-bold">Extend Streak</span>
+  </button>
+
+  @if (showConfetti) {
+    <div class="confetti-container">
+      @for (piece of confettiPieces; track $index) {
+        <div
+          class="confetti-piece"
+          [style.--x]="piece.x"
+          [style.--y]="piece.y"
+          [style.--color]="piece.color"
+          [style.--delay]="piece.delay"
+        ></div>
+      }
+    </div>
+  }
+</div>

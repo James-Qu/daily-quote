@@ -1,0 +1,7 @@
+@if (service.lowPoolWarning(); as warning) {
+  <div class="alert alert-warning alert-dismissible fade show rounded-4 py-2 px-3 mb-0" role="alert">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    <small>{{ warning }}</small>
+    <button type="button" class="btn-close py-2" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+}

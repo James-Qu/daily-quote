@@ -1,0 +1,25 @@
+<div class="card border-0 shadow-sm rounded-4">
+  <div class="card-body p-4">
+    <h6 class="card-subtitle mb-3 text-muted fw-normal">
+      <i class="bi bi-pencil me-1"></i> Handwriting Practice
+    </h6>
+    <textarea
+      class="form-control border-0 p-3"
+      style="
+        min-height: 160px;
+        resize: vertical;
+        background: repeating-linear-gradient(
+          transparent,
+          transparent 31px,
+          #dee2e6 31px,
+          #dee2e6 32px
+        );
+        line-height: 32px;
+        font-family: 'Segoe Script', 'Comic Sans MS', cursive;
+        font-size: 16px;
+      "
+      placeholder="Type or hand-copy the quote here..."
+      [(ngModel)]="practiceText"
+    ></textarea>
+  </div>
+</div>

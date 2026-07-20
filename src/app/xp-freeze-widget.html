@@ -1,0 +1,52 @@
+<div class="card border-0 shadow-sm rounded-4">
+  <div class="card-body p-4">
+    <div class="mb-3">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <span class="fw-semibold small">
+          <i class="bi bi-trophy-fill text-warning me-1"></i> XP
+        </span>
+        <span class="small text-muted">{{ streakService.xp() }} / 30</span>
+      </div>
+      <div class="progress" style="height: 10px;">
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+          role="progressbar"
+          [style.width.%]="(streakService.xp() / 30) * 100"
+        ></div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <span class="fw-semibold small">
+          <i class="bi bi-snowflake me-1 text-info"></i> Streak Freezes
+        </span>
+      </div>
+      <div class="d-flex gap-1">
+        @for (i of [0, 1]; track i) {
+          <div
+            class="d-flex align-items-center justify-content-center rounded-3"
+            [class.bg-info]="i < streakService.streakFreezes()"
+            [class.bg-light]="i >= streakService.streakFreezes()"
+            style="width: 40px; height: 40px;"
+          >
+            <i
+              class="bi bi-snowflake"
+              [class.text-white]="i < streakService.streakFreezes()"
+              [class.text-muted]="i >= streakService.streakFreezes()"
+            ></i>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button
+      class="btn btn-outline-info btn-sm w-100 rounded-3"
+      [disabled]="!streakService.canRedeemFreeze()"
+      (click)="redeem()"
+    >
+      <i class="bi bi-arrow-repeat me-1"></i>
+      Redeem Freeze (10 XP)
+    </button>
+  </div>
+</div>
